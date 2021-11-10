@@ -1,3 +1,5 @@
+
+// Defines variable to be used by the functions
 const workoutTypeSelect = document.querySelector("#type");
 const cardioForm = document.querySelector(".cardio-form");
 const resistanceForm = document.querySelector(".resistance-form");
@@ -49,6 +51,7 @@ function handleWorkoutTypeChange(event) {
   validateInputs();
 }
 
+// Validates that the user input matches what we expect them to enter
 function validateInputs() {
   let isValid = true;
 
@@ -151,6 +154,8 @@ if (addButton) {
 }
 toast.addEventListener("animationend", handleToastAnimationEnd);
 
+
+// Adds an event listener to all input elements and calles the validateInputs function
 document
   .querySelectorAll("input")
   .forEach(element => element.addEventListener("input", validateInputs));
