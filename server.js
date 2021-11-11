@@ -37,7 +37,15 @@ app.get("/stats", (req, res) => {
 });
 
 // Recalls the last workout
-app.get("/api/workouts", (req, res) => {});
+app.get("/api/workouts", (req, res) => {
+  db.Workout.find({})
+  .then(dbWorkout => {
+    res.json(dbWorkout);
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  })
+});
 
 
 // Creates a new workout document
