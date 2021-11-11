@@ -21,10 +21,9 @@ let shouldNavigateAway = false;
 
 async function initExercise() {
   let workout;
-
   if (location.search.split("=")[1] === undefined) {
     workout = await API.createWorkout()
-    console.log(workout)
+    
   }
   if (workout) {
     location.search = "?id=" + workout._id;
@@ -98,6 +97,8 @@ function validateInputs() {
   }
 }
 
+
+// Handles form submission when exercise is added or workout is complete 
 async function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -129,6 +130,7 @@ function handleToastAnimationEnd() {
   }
 }
 
+// Clears input fields after form submission
 function clearInputs() {
   cardioNameInput.value = "";
   nameInput.value = "";
