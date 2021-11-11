@@ -25,16 +25,6 @@ const opts = { useNewUrlParser: true,
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", opts);
 
 
-// db.Workout.create({})
-//   .then(dbWorkout => {
-//     console.log(dbWorkout);
-//   })
-//   .catch(({ message }) => {
-//     console.log(message);
-//   });
-
-// TODO: Routes go here
-
 // Renders the /exercise page to add a new workout
 app.get("/exercise", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/exercise.html"));
@@ -47,11 +37,10 @@ app.get("/stats", (req, res) => {
 });
 
 // Recalls the last workout
-app.get("/api/workouts", (req, res) => {})
+app.get("/api/workouts", (req, res) => {});
 
 
-// TODO: Put route to add exercises to most recent workout
-
+// Creates a new workout document
 app.post("/api/workouts", (req, res) => {
   db.Workout.create(req.body, (error, data) => {
     if (error) {
@@ -63,8 +52,17 @@ app.post("/api/workouts", (req, res) => {
 });
 
 
-// TODO: Post route to create a new workout with exercises
-// app.put("/api/workouts/:id")
+// TODO: Adds exercises to most recent workout
+// app.put("/api/workouts/:id", (req, res) => {
+//   let workoutID = req.params.id; 
+//   db.Workout.findByIdAndUpdate(workoutID, { $push: { exercises: req.body } }, { new: true }))
+//     .then(dbWorkout => {
+//       res.json(dbWorkout);
+//     })
+//     .catch(err => {
+//       res.json(err);
+//     });
+// });
 
 
 // TODO: Get route to view combined weight of exercises on stats page

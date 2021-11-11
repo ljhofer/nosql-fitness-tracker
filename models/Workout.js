@@ -8,9 +8,31 @@ const WorkoutSchema = new Schema({
   },
   exercises: [
     {
-        type: Schema.Types.ObjectId,
-        ref: "Exercise"
-    }
+      type: {
+        type: String,
+        required: "Please choose a type for your exercise."
+      },
+      name: {
+        type: String, 
+        trim: true, 
+        required: "Please enter a name for your exercise."
+      },
+      duration: {
+        type: Number
+      }, 
+      distance: {
+        type: Number
+      }, 
+      weight: {
+        type: Number    
+      },
+      reps: {
+          type: Number
+      }, 
+      sets: {
+        type: Number
+      } 
+    }  
   ]
 });
 
