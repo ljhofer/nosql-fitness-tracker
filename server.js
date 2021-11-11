@@ -60,7 +60,7 @@ app.post("/api/workouts", (req, res) => {
 });
 
 
-// TODO: Adds exercises to most recent workout
+// Adds exercises to most recent workout
 app.put("/api/workouts/:id", (req, res) => { 
   db.Workout.findOneAndUpdate( 
     { _id: req.params.id }, { $push: { exercises: req.body } }, { new: true })
@@ -73,12 +73,21 @@ app.put("/api/workouts/:id", (req, res) => {
 });
 
 
+// Displays the last 7 workouts to the stats page
+app.get('/api/workouts/range', (req, res) => {
+  db.Workout.find({})
+  .then(dbWorkout => {
+      res.json(dbWorkout);
+  })
+  .catch(err => {
+      res.status(400).json(err);
+  });
+})
+
+
 // TODO: Get route to view combined weight of exercises on stats page
-// app.get("/api/workouts")
+// TODO: Get route to view total duration of each workout from the past 7 workouts oon stats page
 
-
-// TODO: Get route to view total durating of each workout from the past 7 workouts oon stats page
-// app.get("/api/workouts/range")
 
 
 

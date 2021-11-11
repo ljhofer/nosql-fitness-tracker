@@ -19,6 +19,7 @@ const newWorkout = document.querySelector(".new-workout")
 let workoutType = null;
 let shouldNavigateAway = false;
 
+// Grabs the workout id from the URL
 async function initExercise() {
   let workout;
   if (location.search.split("=")[1] === undefined) {
