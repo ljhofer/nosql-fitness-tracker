@@ -47,7 +47,6 @@ app.get("/api/workouts", (req, res) => {
     }
   ])
   .then(dbWorkout => {
-    console.log(dbWorkout);
     res.json(dbWorkout);
   })
   .catch(err => {
