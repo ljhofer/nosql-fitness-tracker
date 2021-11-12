@@ -83,7 +83,14 @@ app.put("/api/workouts/:id", (req, res) => {
 
 // Displays the last 7 workouts to the stats page
 app.get('/api/workouts/range', (req, res) => {
-  db.Workout.find({})
+  db.Workout.aggregate([
+    { $addFields: { 
+        totalDuration: {
+          $sum: "$exercises.duration"
+        }
+      }
+    }
+  ])
   .then(dbWorkout => {
       res.json(dbWorkout);
   })
@@ -93,8 +100,6 @@ app.get('/api/workouts/range', (req, res) => {
 })
 
 
-// TODO: Get route to view combined weight of exercises on stats page
-// TODO: Get route to view total duration of each workout from the past 7 workouts oon stats page
 
 
 
