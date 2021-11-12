@@ -39,7 +39,7 @@ Please contact me at <ljhofer@gmail.com> to discuss contributions.
 
 ## Link
 <!-- Add correct Heroku/Atlas link here -->
-[Link to deployed on Heroku.](https://ljhofer-tech-blog.herokuapp.com/)
+[Link to deployed on Heroku.](https://ljhofer-fitness-tracker.herokuapp.com/)
 
 [Link to project's GitHub repo.](https://github.com/ljhofer/nosql-fitness-tracker)
 
